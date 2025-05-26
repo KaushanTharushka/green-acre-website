@@ -63,23 +63,23 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for the sourcing website - updated to green and yellow
+				// Custom colors for the sourcing website
 				sourcing: {
 					'green': {
-						DEFAULT: '#16a34a',
-						light: '#22c55e',
-						dark: '#15803d',
+						DEFAULT: '#1e7e34',
+						light: '#2e9e44',
+						dark: '#166628',
 					},
-					'yellow': {
-						DEFAULT: '#eab308',
-						light: '#fbbf24',
-						dark: '#ca8a04',
+					'orange': {
+						DEFAULT: '#e67e22',
+						light: '#f39c12',
+						dark: '#d35400',
 					},
 					'light': '#f5f5f5',
 					'text': '#333333',
 					'footer': {
-						DEFAULT: '#16a34a',
-						dark: '#15803d',
+						DEFAULT: '#1e7e34', // Changed from blue to green as requested
+						dark: '#166628',
 					}
 				},
 			},

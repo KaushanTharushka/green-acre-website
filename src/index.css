@@ -112,7 +112,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(22, 163, 74, 0.7);
+    background-color: rgba(30, 126, 52, 0.7);
     z-index: 0;
   }
   
@@ -160,7 +160,7 @@
   }
 
   .service-card-footer {
-    @apply p-4 bg-sourcing-yellow text-white;
+    @apply p-4 bg-sourcing-orange text-white;
   }
 
   .stats-container {
@@ -184,7 +184,7 @@
   }
   
   .section-heading::after {
-    @apply content-[''] absolute h-1 w-24 bg-sourcing-yellow left-1/2 -translate-x-1/2 -bottom-2;
+    @apply content-[''] absolute h-1 w-24 bg-sourcing-orange left-1/2 -translate-x-1/2 -bottom-2;
   }
   
   .text-gold {
@@ -207,7 +207,7 @@
   .hover-glow {
     @apply transition-all duration-300;
     &:hover {
-      box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+      box-shadow: 0 0 15px rgba(30, 126, 52, 0.5);
     }
   }
   
@@ -237,7 +237,7 @@
   
   /* Gradient text */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-sourcing-green to-sourcing-yellow;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sourcing-green to-sourcing-orange;
   }
 
   /* Decorative elements */
@@ -292,7 +292,7 @@ select:-webkit-autofill:focus {
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #16a34a;
+  outline: 2px solid #1e7e34;
   outline-offset: 2px;
 }
 
