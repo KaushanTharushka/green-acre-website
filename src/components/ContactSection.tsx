@@ -22,7 +22,7 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="section-heading">LET'S CONNECT</h2>
-        <p className="text-center max-w-2xl mx-auto mb-12 text-sourcing-text">
+        <p className="text-center max-w-2xl mx-auto mb-12">
           Partner with us to elevate your business, supply chain, and personal brand to new heights
         </p>
         
@@ -33,27 +33,27 @@ const ContactSection: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-1 text-sourcing-text">Your Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
                   <Input id="name" placeholder="John Doe" required />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1 text-sourcing-text">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">Email Address</label>
                   <Input id="email" type="email" placeholder="john@example.com" required />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="company" className="block text-sm font-medium mb-1 text-sourcing-text">Company Name</label>
+                <label htmlFor="company" className="block text-sm font-medium mb-1">Company Name</label>
                 <Input id="company" placeholder="Your Company" />
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-1 text-sourcing-text">Subject</label>
+                <label htmlFor="subject" className="block text-sm font-medium mb-1">Subject</label>
                 <Input id="subject" placeholder="How can we help?" required />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1 text-sourcing-text">Your Message</label>
+                <label htmlFor="message" className="block text-sm font-medium mb-1">Your Message</label>
                 <Textarea id="message" rows={5} placeholder="Please provide details about your inquiry..." required />
               </div>
               
@@ -69,19 +69,19 @@ const ContactSection: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center">
                 <Mail className="h-6 w-6 text-sourcing-green mr-3" />
-                <span className="text-sourcing-text">harandra@reviveagro.com</span>
+                <span>harandra@reviveagro.com</span>
               </div>
               
               <div className="flex items-center">
                 <Phone className="h-6 w-6 text-sourcing-green mr-3" />
-                <div className="text-sourcing-text">
+                <div>
                   <p>+44 203 375 5533</p>
                   <p>+44 746 349 1010</p>
                 </div>
               </div>
               
               <div className="pt-6">
-                <h4 className="font-medium text-lg mb-3 text-sourcing-text">Connect With Us</h4>
+                <h4 className="font-medium text-lg mb-3">Connect With Us</h4>
                 <div className="flex space-x-4">
                   <a href="#" className="p-2 bg-sourcing-green text-white rounded-full hover:bg-sourcing-green-light transition">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -109,25 +109,25 @@ const ContactSection: React.FC = () => {
                   <svg className="w-5 h-5 mr-2 text-sourcing-green" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                   </svg>
-                  <span className="text-sourcing-text">Proven track record of success</span>
+                  Proven track record of success
                 </li>
                 <li className="flex items-center">
                   <svg className="w-5 h-5 mr-2 text-sourcing-green" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                   </svg>
-                  <span className="text-sourcing-text">Tailored solutions for your specific needs</span>
+                  Tailored solutions for your specific needs
                 </li>
                 <li className="flex items-center">
                   <svg className="w-5 h-5 mr-2 text-sourcing-green" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                   </svg>
-                  <span className="text-sourcing-text">Commitment to sustainability and ethics</span>
+                  Commitment to sustainability and ethics
                 </li>
                 <li className="flex items-center">
                   <svg className="w-5 h-5 mr-2 text-sourcing-green" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                   </svg>
-                  <span className="text-sourcing-text">Global network and extensive expertise</span>
+                  Global network and extensive expertise
                 </li>
               </ul>
             </div>

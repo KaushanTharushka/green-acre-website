@@ -88,20 +88,20 @@ const Footer: React.FC = () => {
             <h3 className="font-bold text-lg mb-4 border-b border-sourcing-green-dark pb-2">Get in Touch</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 text-sourcing-yellow mt-0.5" />
+                <MapPin className="h-5 w-5 mr-3 text-sourcing-orange mt-0.5" />
                 <span className="text-gray-200">123 Business Avenue, Suite 100, London, UK</span>
               </li>
               <li className="flex items-start">
-                <Phone className="h-5 w-5 mr-3 text-sourcing-yellow mt-0.5" />
+                <Phone className="h-5 w-5 mr-3 text-sourcing-orange mt-0.5" />
                 <span className="text-gray-200">+44 123 456 7890</span>
               </li>
               <li className="flex items-start">
-                <Mail className="h-5 w-5 mr-3 text-sourcing-yellow mt-0.5" />
+                <Mail className="h-5 w-5 mr-3 text-sourcing-orange mt-0.5" />
                 <span className="text-gray-200">contact@reviveagro.com</span>
               </li>
             </ul>
             <div className="mt-6">
-              <a href="#contact" className="inline-flex items-center py-2 px-4 bg-sourcing-yellow hover:bg-sourcing-yellow-light rounded-md transition-colors text-white">
+              <a href="#contact" className="inline-flex items-center py-2 px-4 bg-sourcing-orange hover:bg-sourcing-orange-light rounded-md transition-colors text-white">
                 <span>Contact Us</span>
                 <ArrowUpRight className="ml-2 h-4 w-4" />
               </a>
