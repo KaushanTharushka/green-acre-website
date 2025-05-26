@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
             >
-              <Sparkles className="w-4 h-4 text-yellow-300 mr-2" />
+              <Sparkles className="w-4 h-4 text-sourcing-yellow mr-2" />
               <span className="text-white/90 text-sm font-medium">Welcome to Revive Agro</span>
             </motion.div>
 
@@ -140,7 +140,7 @@ const Hero: React.FC = () => {
                 }}
                 className="flex items-center space-x-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full cursor-pointer group"
               >
-                <feature.icon className="w-5 h-5 text-white group-hover:text-yellow-300 transition-colors duration-300" />
+                <feature.icon className="w-5 h-5 text-white group-hover:text-sourcing-yellow transition-colors duration-300" />
                 <span className="text-white font-medium text-sm md:text-base">{feature.text}</span>
               </motion.div>
             ))}

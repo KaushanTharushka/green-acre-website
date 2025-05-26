@@ -63,7 +63,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for the sourcing website - updated to green and yellow
+				// Updated colors for the sourcing website - green and dark yellow
 				sourcing: {
 					'green': {
 						DEFAULT: '#16a34a',
@@ -71,9 +71,9 @@ export default {
 						dark: '#15803d',
 					},
 					'yellow': {
-						DEFAULT: '#eab308',
-						light: '#fbbf24',
-						dark: '#ca8a04',
+						DEFAULT: '#b45309', // Dark yellow/amber
+						light: '#d97706', // Slightly lighter dark yellow
+						dark: '#92400e', // Very dark yellow/amber
 					},
 					'light': '#f5f5f5',
 					'text': '#333333',
