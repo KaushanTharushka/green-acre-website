@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
       icon: Award,
       title: "Professional Branding",
       description: "Elevating branding for professionals and executives",
-      color: "from-orange-500 to-red-500"
+      color: "from-yellow-500 to-yellow-600"
     }
   ];
 
@@ -92,7 +92,7 @@ const AboutSection: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            <span className="bg-gradient-to-r from-sourcing-green to-sourcing-orange bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sourcing-green to-sourcing-yellow bg-clip-text text-transparent">
               ABOUT US
             </span>
           </h2>
@@ -107,7 +107,7 @@ const AboutSection: React.FC = () => {
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-sourcing-green to-sourcing-orange bg-clip-text text-transparent">
+              <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-sourcing-green to-sourcing-yellow bg-clip-text text-transparent">
                 Who We Are
               </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -164,7 +164,7 @@ const AboutSection: React.FC = () => {
             </motion.div>
             
             <motion.div whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300 }}>
-              <Card className="overflow-hidden shadow-xl border-0 bg-gradient-to-br from-sourcing-orange to-yellow-500">
+              <Card className="overflow-hidden shadow-xl border-0 bg-gradient-to-br from-sourcing-yellow to-yellow-500">
                 <CardHeader className="bg-transparent text-white pb-4">
                   <div className="flex items-center mb-4">
                     <Eye className="w-8 h-8 mr-3" />
