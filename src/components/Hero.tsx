@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Sparkles, Globe, TrendingUp } from 'lucide-react';
@@ -155,38 +156,6 @@ const Hero: React.FC = () => {
           >
             Transforming Operations, Building Brands, and Driving Growth.
           </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-sourcing-orange text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <span className="relative z-10">Get Started Today</span>
-              <motion.div
-                className="absolute inset-0 bg-white/20"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Learn More
-            </motion.button>
-          </motion.div>
         </div>
       </div>
 
