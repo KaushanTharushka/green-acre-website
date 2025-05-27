@@ -76,30 +76,6 @@ const SolutionsSection: React.FC = () => {
     }
   ];
 
-  const specialtyItems = [
-    {
-      icon: Crown,
-      title: "Expertise from over a decade of leadership in operations and supply chains",
-      description: "Deep industry knowledge and proven methodologies",
-      gradient: "from-yellow-500 to-orange-500",
-      delay: 0.1
-    },
-    {
-      icon: TrendingUp,
-      title: "Proven track record of enhancing productivity and revenue growth for global clients",
-      description: "Measurable results across diverse markets",
-      gradient: "from-blue-500 to-purple-500",
-      delay: 0.2
-    },
-    {
-      icon: Leaf,
-      title: "Commitment to ethical practices and sustainable growth",
-      description: "Responsible business solutions for the future",
-      gradient: "from-green-500 to-teal-500",
-      delay: 0.3
-    }
-  ];
-
   return (
     <section id="solutions" className="py-20 bg-white relative overflow-hidden">
       {/* Animated Background */}
@@ -281,83 +257,6 @@ const SolutionsSection: React.FC = () => {
                     <ArrowRight className="w-4 h-4" />
                   </motion.div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* OUR SPECIALTY section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <div className="text-center mb-12">
-            <motion.div
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-sourcing-green/10 to-sourcing-orange/10 rounded-full mb-6"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Star className="w-5 h-5 text-sourcing-green mr-2" />
-              <span className="text-sourcing-green font-medium">Excellence</span>
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-sourcing-green to-sourcing-orange bg-clip-text text-transparent">
-                OUR SPECIALTY
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              What sets us apart in delivering exceptional results
-            </p>
-          </div>
-          
-          <div className="max-w-5xl mx-auto space-y-8">
-            {specialtyItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: item.delay }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
-              >
-                {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                
-                {/* Floating Icon */}
-                <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                  <item.icon className="w-16 h-16 text-gray-400" />
-                </div>
-                
-                <div className="relative z-10 flex items-start space-x-6">
-                  <motion.div
-                    className={`p-4 rounded-2xl bg-gradient-to-r ${item.gradient} flex-shrink-0`}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <item.icon className="w-8 h-8 text-white" />
-                  </motion.div>
-                  
-                  <div className="flex-1">
-                    <h3 className="font-bold text-xl mb-3 text-gray-900 group-hover:text-sourcing-green transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Animated Border */}
-                <motion.div
-                  className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${item.gradient}`}
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ duration: 1, delay: item.delay + 0.5 }}
-                  viewport={{ once: true }}
-                />
               </motion.div>
             ))}
           </div>
