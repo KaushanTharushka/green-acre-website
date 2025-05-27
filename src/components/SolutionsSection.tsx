@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Globe, 
   Sprout, 
   Award, 
   BarChart3, 
@@ -32,7 +30,7 @@ const SolutionsSection: React.FC = () => {
       description: "Contract negotiation to secure favourable terms and pricing"
     },
     {
-      icon: Globe,
+      icon: Shield,
       title: "Logistics Integration",
       description: "Integrated logistics management to streamline the procurement process"
     },
@@ -51,7 +49,7 @@ const SolutionsSection: React.FC = () => {
 
   const clientSuccessItems = [
     {
-      icon: Globe,
+      icon: Target,
       title: "Global Sourcing",
       description: "Efficiently connecting businesses with reliable, cost-effective suppliers worldwide.",
       gradient: "from-blue-500 to-cyan-500"
@@ -105,7 +103,11 @@ const SolutionsSection: React.FC = () => {
             className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-sourcing-green/10 to-sourcing-orange/10 rounded-full mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Globe className="w-5 h-5 text-sourcing-green mr-2" />
+            <img 
+              src="/lovable-uploads/fb113a2e-7b6e-4696-8a35-640edf9815a0.png" 
+              alt="Revive Agro Logo" 
+              className="w-5 h-5 mr-2"
+            />
             <span className="text-sourcing-green font-medium">Our Solutions</span>
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
