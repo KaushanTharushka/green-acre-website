@@ -111,8 +111,7 @@ const Footer: React.FC = () => {
       </div>
       
       <div className="bg-sourcing-footer-dark py-4">
-        <div className="container mx-auto px-4 text-center text-gray-300 text-sm">
-          <p>This website is designed to provide general information about Revive Agro and our services. The content is subject to change without notice.</p>
+        <div className="container mx-auto px-4 text-center text-gray-300 text-sm">          <p>Design and Development by Kaushan Tharushka</p>
         </div>
       </div>
     </footer>
