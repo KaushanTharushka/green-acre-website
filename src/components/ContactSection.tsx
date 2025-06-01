@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,13 +8,45 @@ import { Mail, Phone } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    subject: '',
+    message: ''
+  });
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Create email body
+    const emailBody = `
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+    `.trim();
+    
+    // Create mailto link
+    const mailtoLink = `mailto:harandra@reviveagro.com?subject=${encodeURIComponent(formData.subject || 'Contact Form Inquiry')}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
     toast({
-      title: "Message Sent",
-      description: "Thank you for your inquiry. We'll be in touch soon!",
+      title: "Email Client Opened",
+      description: "Your default email client should open with the message pre-filled.",
     });
   };
   
@@ -34,27 +66,58 @@ const ContactSection: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
-                  <Input id="name" placeholder="John Doe" required />
+                  <Input 
+                    id="name" 
+                    placeholder="John Doe" 
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-1">Email Address</label>
-                  <Input id="email" type="email" placeholder="john@example.com" required />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="john@example.com" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
               </div>
               
               <div>
                 <label htmlFor="company" className="block text-sm font-medium mb-1">Company Name</label>
-                <Input id="company" placeholder="Your Company" />
+                <Input 
+                  id="company" 
+                  placeholder="Your Company" 
+                  value={formData.company}
+                  onChange={handleInputChange}
+                />
               </div>
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-1">Subject</label>
-                <Input id="subject" placeholder="How can we help?" required />
+                <Input 
+                  id="subject" 
+                  placeholder="How can we help?" 
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-1">Your Message</label>
-                <Textarea id="message" rows={5} placeholder="Please provide details about your inquiry..." required />
+                <Textarea 
+                  id="message" 
+                  rows={5} 
+                  placeholder="Please provide details about your inquiry..." 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               
               <Button type="submit" className="w-full bg-sourcing-green hover:bg-sourcing-green-light">
