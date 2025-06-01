@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
@@ -35,17 +35,41 @@ const Index = () => {
     }
   }, []);
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
+  const sectionVariants = useMemo(() => ({
+    hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: "easeOut"
       }
     }
-  };
+  }), []);
+
+  // Optimized floating elements with reduced count and simpler animations
+  const floatingElements = useMemo(() => 
+    [...Array(4)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute w-2 h-2 bg-sourcing-green/5 rounded-full"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        }}
+        animate={{
+          y: [-15, 15, -15],
+          opacity: [0.1, 0.2, 0.1]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: i * 2
+        }}
+      />
+    )), []
+  );
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-x-hidden">
@@ -55,30 +79,9 @@ const Index = () => {
         style={{ scaleX }}
       />
       
-      {/* Floating Background Elements */}
+      {/* Optimized Floating Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-sourcing-green/5 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-30, 30, -30],
-              x: [-15, 15, -15],
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.3, 0.1]
-            }}
-            transition={{
-              duration: 6 + Math.random() * 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.8
-            }}
-          />
-        ))}
+        {floatingElements}
       </div>
 
       <Header />
@@ -89,7 +92,7 @@ const Index = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={sectionVariants}
           id="about"
         >
@@ -99,7 +102,7 @@ const Index = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={sectionVariants}
         >
           <SolutionsSection />
@@ -108,7 +111,7 @@ const Index = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={sectionVariants}
         >
           <ServicesSection />
@@ -117,7 +120,7 @@ const Index = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={sectionVariants}
         >
           <ProcessSection />
@@ -126,7 +129,7 @@ const Index = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={sectionVariants}
           id="contact"
         >

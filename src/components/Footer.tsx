@@ -4,6 +4,16 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+  
+  const solutions = [
+    "Global Sourcing",
+    "Agro Products", 
+    "Business Consultancy",
+    "Supply Chain Management",
+    "Branding"
+  ];
+
   return (
     <footer className="bg-sourcing-footer text-white">
       <div className="container mx-auto px-4 py-12">
@@ -20,6 +30,7 @@ const Footer: React.FC = () => {
                   src="/lovable-uploads/91603dcd-d955-45bb-930c-87699f083e9b.png" 
                   alt="Revive Agro Logo" 
                   className="h-12 w-auto"
+                  loading="lazy"
                 />
               </div>
               <h2 className="text-xl font-bold">Revive Agro</h2>
@@ -45,7 +56,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
             </div>
-            <p className="text-gray-300 text-sm mt-6">© {new Date().getFullYear()} Revive Agro. All rights reserved.</p>
+            <p className="text-gray-300 text-sm mt-6">© {currentYear} Revive Agro. All rights reserved.</p>
           </motion.div>
           
           <motion.div
@@ -56,18 +67,12 @@ const Footer: React.FC = () => {
           >
             <h3 className="font-bold text-lg mb-4 border-b border-sourcing-green-dark pb-2">Solutions</h3>
             <ul className="space-y-3">
-              {[
-                "Global Sourcing",
-                "Agro Products",
-                "Business Consultancy",
-                "Supply Chain Management",
-                "Branding"
-              ].map((item, i) => (
+              {solutions.map((item, i) => (
                 <motion.li 
                   key={item}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
+                  transition={{ delay: 0.3 + i * 0.05, duration: 0.3 }}
                   viewport={{ once: true }}
                 >
                   <a href="#" className="group flex items-center text-gray-200 hover:text-white transition">
@@ -111,11 +116,12 @@ const Footer: React.FC = () => {
       </div>
       
       <div className="bg-sourcing-footer-dark py-4">
-        <div className="container mx-auto px-4 text-center text-gray-300 text-sm">          <p>Design and Development by Kaushan Tharushka</p>
+        <div className="container mx-auto px-4 text-center text-gray-300 text-sm">
+          <p>Design and Development by Kaushan Tharushka</p>
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer;
+export default React.memo(Footer);

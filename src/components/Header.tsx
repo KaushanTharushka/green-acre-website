@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -8,18 +8,14 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 20);
   }, []);
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
   const navItems = [
     { name: "About", href: "#about" },
@@ -28,6 +24,8 @@ const Header: React.FC = () => {
     { name: "Process", href: "#process" },
     { name: "Contact", href: "#contact" },
   ];
+
+  const closeSheet = useCallback(() => setIsOpen(false), []);
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-white py-4'}`}>
@@ -43,6 +41,7 @@ const Header: React.FC = () => {
               src="/lovable-uploads/91603dcd-d955-45bb-930c-87699f083e9b.png" 
               alt="Revive Agro Logo" 
               className="h-12 w-auto"
+              loading="eager"
             />
           </div>
           <h1 className="text-2xl font-bold text-sourcing-green">Revive Agro</h1>
@@ -66,7 +65,7 @@ const Header: React.FC = () => {
                     transition={{ delay: i * 0.1, duration: 0.3 }}
                     href={item.href} 
                     className="text-sourcing-text hover:text-sourcing-green transition pl-2 py-2 border-l-2 border-transparent hover:border-sourcing-green" 
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeSheet}
                   >
                     {item.name}
                   </motion.a>
@@ -101,4 +100,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
