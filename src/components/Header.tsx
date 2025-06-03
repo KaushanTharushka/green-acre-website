@@ -29,12 +29,12 @@ const Header: React.FC = () => {
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-white py-4'}`}>
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div className="container mx-auto px-4 flex justify-between items-center">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center mb-4 md:mb-0"
+          className="flex items-center"
         >
           <div className="mr-2">
             <img 
@@ -47,34 +47,6 @@ const Header: React.FC = () => {
           <h1 className="text-2xl font-bold text-sourcing-green">Revive Agro</h1>
         </motion.div>
         
-        {/* Mobile Menu */}
-        <div className="md:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <button className="h-10 w-10 flex items-center justify-center rounded-md bg-sourcing-green/10 hover:bg-sourcing-green/20 transition-colors">
-                <Menu className="h-6 w-6 text-sourcing-green" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-white">
-              <nav className="flex flex-col space-y-4 mt-8">
-                {navItems.map((item, i) => (
-                  <motion.a 
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.3 }}
-                    href={item.href} 
-                    className="text-sourcing-text hover:text-sourcing-green transition pl-2 py-2 border-l-2 border-transparent hover:border-sourcing-green" 
-                    onClick={closeSheet}
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
-
         {/* Desktop Menu */}
         <nav className="hidden md:block flex-grow">
           <ul className="flex flex-wrap justify-center md:justify-end gap-6">
@@ -95,6 +67,34 @@ const Header: React.FC = () => {
             ))}
           </ul>
         </nav>
+
+        {/* Mobile Menu - Moved to right side */}
+        <div className="md:hidden">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <button className="h-10 w-10 flex items-center justify-center rounded-md bg-sourcing-green/10 hover:bg-sourcing-green/20 transition-colors">
+                <Menu className="h-6 w-6 text-sourcing-green" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] bg-white">
+              <nav className="flex flex-col space-y-4 mt-8">
+                {navItems.map((item, i) => (
+                  <motion.a 
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1, duration: 0.3 }}
+                    href={item.href} 
+                    className="text-sourcing-text hover:text-sourcing-green transition pl-2 py-2 border-l-2 border-transparent hover:border-sourcing-green" 
+                    onClick={closeSheet}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
