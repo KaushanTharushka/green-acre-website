@@ -89,7 +89,7 @@ const Header: React.FC = () => {
                     onClick={closeSheet}
                   >
                     {item.name}
-                  </a>
+                  </motion.a>
                 ))}
               </nav>
             </SheetContent>
