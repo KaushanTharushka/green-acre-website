@@ -1,15 +1,24 @@
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import AboutSection from "@/components/AboutSection";
-import SolutionsSection from "@/components/SolutionsSection";
-import ServicesSection from "@/components/ServicesSection";
-import ProcessSection from "@/components/ProcessSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import ChatSupport from "@/components/ChatSupport";
 import { motion, useScroll, useSpring } from "framer-motion";
+
+// Lazy load components for better performance
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const SolutionsSection = lazy(() => import("@/components/SolutionsSection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const ChatSupport = lazy(() => import("@/components/ChatSupport"));
+
+// Loading component for suspense
+const SectionLoader = () => (
+  <div className="flex justify-center items-center py-20">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-sourcing-green"></div>
+  </div>
+);
 
 const Index = () => {
   const { scrollYProgress } = useScroll();
@@ -36,36 +45,36 @@ const Index = () => {
   }, []);
 
   const sectionVariants = useMemo(() => ({
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
   }), []);
 
-  // Optimized floating elements with reduced count and simpler animations
+  // Reduced floating elements for better performance
   const floatingElements = useMemo(() => 
-    [...Array(4)].map((_, i) => (
+    [...Array(2)].map((_, i) => (
       <motion.div
         key={i}
-        className="absolute w-2 h-2 bg-sourcing-green/5 rounded-full"
+        className="absolute w-1 h-1 bg-sourcing-green/5 rounded-full"
         style={{
           left: `${Math.random() * 100}%`,
           top: `${Math.random() * 100}%`,
         }}
         animate={{
-          y: [-15, 15, -15],
+          y: [-10, 10, -10],
           opacity: [0.1, 0.2, 0.1]
         }}
         transition={{
-          duration: 8,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: i * 2
+          delay: i * 3
         }}
       />
     )), []
@@ -89,56 +98,68 @@ const Index = () => {
       <main className="flex-grow relative">
         <Hero />
         
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-          id="about"
-        >
-          <AboutSection />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={sectionVariants}
+            id="about"
+          >
+            <AboutSection />
+          </motion.div>
+        </Suspense>
         
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
-          <SolutionsSection />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={sectionVariants}
+          >
+            <SolutionsSection />
+          </motion.div>
+        </Suspense>
         
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
-          <ServicesSection />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={sectionVariants}
+          >
+            <ServicesSection />
+          </motion.div>
+        </Suspense>
         
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
-          <ProcessSection />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={sectionVariants}
+          >
+            <ProcessSection />
+          </motion.div>
+        </Suspense>
         
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-          id="contact"
-        >
-          <ContactSection />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={sectionVariants}
+            id="contact"
+          >
+            <ContactSection />
+          </motion.div>
+        </Suspense>
       </main>
       
       <Footer />
-      <ChatSupport />
+      <Suspense fallback={null}>
+        <ChatSupport />
+      </Suspense>
     </div>
   );
 };

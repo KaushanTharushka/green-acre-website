@@ -33,7 +33,7 @@ const Header: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className="flex items-center"
         >
           <div className="mr-2">
@@ -42,6 +42,8 @@ const Header: React.FC = () => {
               alt="Revive Agro Logo" 
               className="h-12 w-auto"
               loading="eager"
+              width="48"
+              height="48"
             />
           </div>
           <h1 className="text-2xl font-bold text-sourcing-green">Revive Agro</h1>
@@ -55,7 +57,7 @@ const Header: React.FC = () => {
                 key={item.name}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.3 }}
+                transition={{ delay: i * 0.05, duration: 0.3 }}
               >
                 <a 
                   href={item.href} 
@@ -68,7 +70,7 @@ const Header: React.FC = () => {
           </ul>
         </nav>
 
-        {/* Mobile Menu - Moved to right side */}
+        {/* Mobile Menu */}
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -83,7 +85,7 @@ const Header: React.FC = () => {
                     key={item.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.3 }}
+                    transition={{ delay: i * 0.05, duration: 0.3 }}
                     href={item.href} 
                     className="text-sourcing-text hover:text-sourcing-green transition pl-2 py-2 border-l-2 border-transparent hover:border-sourcing-green" 
                     onClick={closeSheet}
