@@ -39,7 +39,7 @@ ${formData.message}
     `.trim();
     
     // Create mailto link
-    const mailtoLink = `mailto:harandra@reviveagro.com?subject=${encodeURIComponent(formData.subject || 'Contact Form Inquiry')}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:product@reviveagro.com?subject=${encodeURIComponent(formData.subject || 'Contact Form Inquiry')}&body=${encodeURIComponent(emailBody)}`;
     
     // Open email client
     window.location.href = mailtoLink;
@@ -132,7 +132,7 @@ ${formData.message}
             <div className="space-y-6">
               <div className="flex items-center">
                 <Mail className="h-6 w-6 text-sourcing-green mr-3" />
-                <span>harandra@reviveagro.com</span>
+                <span>product@reviveagro.com</span>
               </div>
               
               <div className="flex items-center">

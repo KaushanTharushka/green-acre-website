@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -93,16 +93,12 @@ const Footer: React.FC = () => {
             <h3 className="font-bold text-lg mb-4 border-b border-sourcing-green-dark pb-2">Get in Touch</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 text-sourcing-orange mt-0.5" />
-                <span className="text-gray-200">123 Business Avenue, Suite 100, London, UK</span>
-              </li>
-              <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-sourcing-orange mt-0.5" />
                 <span className="text-gray-200">+44 123 456 7890</span>
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-3 text-sourcing-orange mt-0.5" />
-                <span className="text-gray-200">contact@reviveagro.com</span>
+                <span className="text-gray-200">product@reviveagro.com</span>
               </li>
             </ul>
             <div className="mt-6">
