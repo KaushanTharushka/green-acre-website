@@ -55,7 +55,7 @@ ${formData.message}
       <div className="container mx-auto px-4">
         <h2 className="section-heading">LET'S CONNECT</h2>
         <p className="text-center max-w-2xl mx-auto mb-12">
-          Partner with us to elevate your business, supply chain, and personal brand to new heights
+          Partner with us to elevate your business, supply chain, and brand to new heights
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
