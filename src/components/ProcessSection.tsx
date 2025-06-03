@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -17,8 +16,7 @@ import {
   Shield,
   Lightbulb,
   Heart,
-  Target,
-  Globe
+  Target
 } from 'lucide-react';
 
 const ProcessSection: React.FC = () => {
@@ -424,7 +422,12 @@ const ProcessSection: React.FC = () => {
                   transition={{ duration: 3, repeat: Infinity }}
                   className="relative z-10"
                 >
-                  <Globe className="w-24 h-24 mx-auto mb-6 text-sourcing-orange" />
+                  <img 
+                    src="/lovable-uploads/91603dcd-d955-45bb-930c-87699f083e9b.png" 
+                    alt="Revive Agro Logo" 
+                    className="w-24 h-24 mx-auto mb-6 object-contain"
+                    loading="lazy"
+                  />
                   <h3 className="font-bold text-3xl mb-4">REVIVE AGRO</h3>
                   <p className="text-white/90">Global Reach, Local Impact</p>
                 </motion.div>
